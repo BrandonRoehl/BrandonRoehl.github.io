@@ -87,6 +87,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Users</span>
           </a>
 
+          <a data-route="twitter" href="{{baseUrl}}twitter">
+            <iron-icon icon=""></iron-icon>
+            <span>Twitter</span>
+          </a>
+
           <a data-route="contact" href="{{baseUrl}}contact">
             <iron-icon icon="mail"></iron-icon>
             <span>Contact</span>
@@ -127,7 +132,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <p class="subhead">You now have:</p>
                 <my-list></my-list>
 
-                <p>Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+                <p>Looking for more Web App layouts? Check out our
+                  <a href="https://github.com/PolymerElements/app-layout-templates">
+                   layouts
+                  </a>
+                   collection. You can also 
+                  <a href="http://polymerelements.github.io/app-layout-templates/">
+                   preview
+                 </a>
+                 them live.
+                </p>
               </paper-material>
 
               <paper-material elevation="1">
@@ -136,24 +150,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               <!-- This is the bottom card with my twitter feed in it -->
               <paper-material elevation="1">
-              <!-- Center the feed -->
-              <div align="center">
-                <!-- The twitter feed -->
-                <a class="twitter-timeline" href="https://twitter.com/BrandonRoehl" data-widget-id="710849958803599360">
-                  Tweets by @BrandonRoehl
-                </a>
-                  <script>!function(d,s,id){
-                    var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-                    if(!d.getElementById(id)){
-                        js=d.createElement(s);
-                        js.id=id;
-                        js.src=p+"://platform.twitter.com/widgets.js";
-                        fjs.parentNode.insertBefore(js,fjs);
-                      }
-                    }(document,"script","twitter-wjs");
-                  </script>
-                </div>
+              
               </paper-material>
+
             </section>
 
             <section data-route="users" tabindex="-1">
@@ -174,12 +173,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
+            <section data-route="twitter" tabindex="-1">
+              <paper-material elevation="1">
+              <h1 class="page-title" tabindex="-1">Twitter</h1>
+                <!-- Center the feed -->
+              <div align="center">
+                <!-- The twitter feed -->
+                <a class="twitter-timeline" href="https://twitter.com/BrandonRoehl" data-widget-id="710849958803599360">
+                  Tweets by @BrandonRoehl
+                </a>
+                  <script>!function(d,s,id){
+                    var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+                    if(!d.getElementById(id)){
+                        js=d.createElement(s);
+                        js.id=id;
+                        js.src=p+"://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js,fjs);
+                      }
+                    }(document,"script","twitter-wjs");
+                  </script>
+              </paper-material>
+            </section>
+
             <section data-route="contact" tabindex="-1">
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Contact</h1>
                 <p>This is the contact section</p>
               </paper-material>
             </section>
+
           </iron-pages>
         </div>
       </paper-scroll-header-panel>
