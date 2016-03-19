@@ -77,27 +77,25 @@
                     
                     <!-- Drawer Content -->
                     <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
+                        
+                        <paper-ripple></paper-ripple>
                         <a data-route="home" href="{{baseUrl}}">
-                            <paper-ripple></paper-ripple>
-                            <iron-icon icon="home"></iron-icon>
+                            <!-- <iron-icon icon="home"></iron-icon> -->
                             <span>Home</span>
                         </a>
                         
                         <a data-route="users" href="{{baseUrl}}users">
-                            <paper-ripple></paper-ripple>
-                            <iron-icon icon="info"></iron-icon>
+                            <!-- <iron-icon icon="info"></iron-icon> -->
                             <span>Users</span>
                         </a>
                         
                         <a data-route="twitter" href="{{baseUrl}}twitter">
-                            <paper-ripple></paper-ripple>
-                            <iron-icon icon=""></iron-icon>
+                            <!--  <iron-icon icon=""></iron-icon> -->
                             <span>Twitter</span>
                         </a>
                         
                         <a data-route="contact" href="{{baseUrl}}contact">
-                            <paper-ripple></paper-ripple>
-                            <iron-icon icon="mail"></iron-icon>
+                            <!-- <iron-icon icon="mail"></iron-icon> -->
                             <span>Contact</span>
                         </a>
                     </paper-menu>
@@ -182,11 +180,15 @@
                             
                             <section data-route="twitter" tabindex="-1">
                                 <paper-material elevation="1">
-                                    <h1 class="page-title" tabindex="-1">Twitter</h1>
+                                    <h1 class="page-title" tabindex="-1"></h1>
                                     <!-- Center the feed -->
                                     <div align="center">
+                                        
                                         <!-- The twitter feed -->
-                                        <a class="twitter-timeline" href="https://twitter.com/BrandonRoehl" data-widget-id="710576908883398656">
+                                        <a class="twitter-timeline"
+                                            href="https://twitter.com/BrandonRoehl"
+                                            data-widget-id="710576908883398656"
+                                            data-chrome="transparent">
                                             Tweets by @BrandonRoehl
                                         </a>
                                         <script>!function(d,s,id){
