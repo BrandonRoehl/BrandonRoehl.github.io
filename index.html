@@ -77,8 +77,8 @@
                     
                     <!-- Drawer Content -->
                     <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
-                        
-                        <paper-ripple></paper-ripple>
+                        <!-- This is slow on mobile -->
+                        <!-- <paper-ripple></paper-ripple> -->
                         <a data-route="home" href="{{baseUrl}}">
                             <!-- <iron-icon icon="home"></iron-icon> -->
                             <span>Home</span>
@@ -130,8 +130,7 @@
                             <section data-route="home" tabindex="-1">
                                 
                                 <paper-material elevation="1">
-                                    <!-- This is slow on mobile -->
-                                    <!-- <my-greeting></my-greeting> -->
+                                    <my-greeting></my-greeting>
                                     
                                     <p class="subhead">You now have:</p>
                                     <my-list></my-list>
