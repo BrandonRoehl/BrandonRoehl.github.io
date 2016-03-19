@@ -21,7 +21,7 @@
                         <!-- Place favicon.ico in the `app/` directory -->
                         
                         <!-- Chrome for Android theme color -->
-                        <meta name="theme-color" content="#2E3AA1">
+                        <meta name="theme-color" content="#F44336">
                             
                         <!-- Web Application Manifest -->
                         <link rel="manifest" href="manifest.json">
@@ -156,8 +156,9 @@
                             </section> 
                             
                             <section data-route="twitter" tabindex="-1">
+                                <h1 class="page-title"></h1>
                                 <paper-material elevation="1">
-                                    <h1 class="page-title" tabindex="-1"></h1>
+                                    
                                     <!-- Center the feed -->
                                     <div align="center">
                                         
@@ -206,8 +207,7 @@
             </paper-toast>
             
             <!-- Uncomment next block to enable Service Worker support (1/2) -->
-            <!--
-             <paper-toast id="caching-complete"
+            <!-- <paper-toast id="caching-complete"
              duration="6000"
              text="Caching complete! This app will work offline.">
              </paper-toast>
@@ -220,9 +220,7 @@
              <platinum-sw-cache default-cache-strategy="fastest"
              cache-config-file="cache-config.json">
              </platinum-sw-cache>
-             </platinum-sw-register>
-             -->
-            
+             </platinum-sw-register> -->
         </template>
         
         <!-- build:js scripts/app.js -->
