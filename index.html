@@ -127,7 +127,10 @@
                         <iron-pages attr-for-selected="data-route" selected="{{route}}">
                             
                             <section data-route="home" tabindex="-1">
+                                <!-- <h1 class="page-title"></h1> -->
+                                
                                 <paper-material elevation="1">
+                                    
                                     <my-greeting></my-greeting>
                                     
                                     <p class="subhead">You now have:</p>
@@ -146,7 +149,14 @@
                                 </paper-material>
                                 
                                 <paper-material elevation="1">
-                                    <p>This is a generic paper card.</p>
+                                    <p>
+                                        View my GitHub Profile
+                                        <a target="_blank" href="https://github.com/BrandonRoehl" style="text-decoration: none">
+                                            <paper-button raised>
+                                                GitHub
+                                            </paper-button>
+                                        </a>
+                                    </p>
                                 </paper-material>
                                 
                                 <!-- This is the bottom card with my twitter feed in it -->
@@ -191,7 +201,14 @@
                                     <h1 class="page-title">Contact</h1>
                                     <p>
                                         <a href="mailto:BrandonRoehl@gmail.com" style="text-decoration: none">
-                                            <paper-button raised>email</paper-button>
+                                            <paper-button raised>
+                                                <style is="email-style">
+                                                    :host {
+                                                        color: blue;
+                                                    }
+                                                </style>
+                                                email
+                                            </paper-button>
                                         </a>
                                         BrandonRoehl@gmail.com
                                     </p>
@@ -209,20 +226,21 @@
             </paper-toast>
             
             <!-- Uncomment next block to enable Service Worker support (1/2) -->
-            <!-- <paper-toast id="caching-complete"
+             <paper-toast id="caching-complete"
              duration="6000"
              text="Caching complete! This app will work offline.">
              </paper-toast>
              
-             <platinum-sw-register auto-register
-             clients-claim
-             skip-waiting
-             base-uri="bower_components/platinum-sw/bootstrap"
-             on-service-worker-installed="displayInstalledToast">
+             <platinum-sw-register  auto-register
+                                    clients-claim
+                                    skip-waiting
+                                    base-uri="bower_components/platinum-sw/bootstrap"
+                                    on-service-worker-installed="displayInstalledToast">
              <platinum-sw-cache default-cache-strategy="fastest"
-             cache-config-file="cache-config.json">
+                                cache-config-file="cache-config.json">
              </platinum-sw-cache>
-             </platinum-sw-register> -->
+             </platinum-sw-register>
+             
         </template>
         
         <!-- build:js scripts/app.js -->
@@ -230,4 +248,9 @@
         <!-- endbuild-->
     </body>
     
+    <style>
+        paper-button {
+            color: blue;
+        }
+    </style>
 </html>
