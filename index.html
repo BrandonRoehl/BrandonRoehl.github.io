@@ -78,20 +78,23 @@
                     <!-- Drawer Content -->
                     <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
                         <!-- This is slow on mobile -->
-                        <!-- <paper-ripple></paper-ripple> -->
+                        
                         <a data-route="home" href="{{baseUrl}}">
                             <!-- <iron-icon icon="home"></iron-icon> -->
                             <span>Home</span>
+                            <paper-ripple></paper-ripple>
                         </a>
                         
                         <a data-route="twitter" href="{{baseUrl}}twitter">
                             <!--  <iron-icon icon=""></iron-icon> -->
                             <span>Twitter</span>
+                            <paper-ripple></paper-ripple>
                         </a>
                         
                         <a data-route="contact" href="{{baseUrl}}contact">
                             <!-- <iron-icon icon="mail"></iron-icon> -->
                             <span>Contact</span>
+                            <paper-ripple></paper-ripple>
                         </a>
                     </paper-menu>
                 </paper-scroll-header-panel>
@@ -115,15 +118,15 @@
                         
                         <!-- Application sub title -->
                         <div class="bottom bottom-container">
-                            <div class="bottom-title">Brandon Roehl's Official website: WORK IN PROGRESS</div>
+                            <div class="bottom-title">WORK IN PROGRESS</div>
                         </div>
                     </paper-toolbar>
                     
                     <!-- Main Content -->
                     <div class="content">
                         <iron-pages attr-for-selected="data-route" selected="{{route}}">
+                            
                             <section data-route="home" tabindex="-1">
-                                
                                 <paper-material elevation="1">
                                     <my-greeting></my-greeting>
                                     
@@ -185,11 +188,9 @@
                             <!-- Contact Page -->
                             <section data-route="contact" tabindex="-1">
                                 <paper-material elevation="1">
-                                    <h1 class="page-title" tabindex="-1">Contact</h1>
-                                    
-                                   
+                                    <h1 class="page-title">Contact</h1>
                                     <p>
-                                        <a href="mailto:BrandonRoehl@gmail.com">
+                                        <a href="mailto:BrandonRoehl@gmail.com" style="text-decoration: none">
                                             <paper-button raised>email</paper-button>
                                         </a>
                                         BrandonRoehl@gmail.com
