@@ -15,7 +15,7 @@
         <meta charset="utf-8">
             <meta name="description" content="">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <meta name="generator" content="Polymer Starter Kit">
+                    <meta name="generator" content="Brandon Roehl">
                         <title>Brandon Roehl</title>
                         
                         <!-- Place favicon.ico in the `app/` directory -->
@@ -37,7 +37,7 @@
                         <!-- Add to homescreen for Safari on iOS -->
                         <meta name="apple-mobile-web-app-capable" content="yes">
                         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-                        <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+                        <meta name="apple-mobile-web-app-title" content="Brandon Roehl">
                         <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
                                                                 
                         <!-- Tile icon for Win8 (144x144) -->
@@ -127,7 +127,7 @@
                         <iron-pages attr-for-selected="data-route" selected="{{route}}">
                             
                             <section data-route="home" tabindex="-1">
-                                <!-- <h1 class="page-title"></h1> -->
+                                <h1 class="page-title"></h1>
                                 
                                 <paper-material elevation="1">
                                     
@@ -152,8 +152,8 @@
                                     <p>
                                         View my GitHub Profile
                                         <a target="_blank" href="https://github.com/BrandonRoehl" style="text-decoration: none">
-                                            <paper-button raised>
-                                                GitHub
+                                            <paper-button>
+                                                Visit GitHub
                                             </paper-button>
                                         </a>
                                     </p>
@@ -167,32 +167,13 @@
                                 </paper-material>
                                 
                             </section> 
-                            
+            
+                            <!-- Twitter Page -->
                             <section data-route="twitter" tabindex="-1">
                                 <h1 class="page-title"></h1>
                                 <paper-material elevation="1">
-                                    
-                                    <!-- Center the feed -->
-                                    <div align="center">
-                                        
-                                        <!-- The twitter feed -->
-                                        <a class="twitter-timeline"
-                                            href="https://twitter.com/BrandonRoehl"
-                                            data-widget-id="710576908883398656"
-                                            data-chrome="transparent">
-                                            Tweets by @BrandonRoehl
-                                        </a>
-                                        <script>!function(d,s,id){
-                                            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-                                            if(!d.getElementById(id)){
-                                                js=d.createElement(s);
-                                                js.id=id;
-                                                js.src=p+"://platform.twitter.com/widgets.js";
-                                                fjs.parentNode.insertBefore(js,fjs);
-                                            }
-                                        }(document,"script","twitter-wjs");
-                                        </script>
-                                        </paper-material>
+                                    <my-twitter></my-twitter>
+                                </paper-material>
                             </section>
                             
                             <!-- Contact Page -->
@@ -201,12 +182,7 @@
                                     <h1 class="page-title">Contact</h1>
                                     <p>
                                         <a href="mailto:BrandonRoehl@gmail.com" style="text-decoration: none">
-                                            <paper-button raised>
-                                                <style is="email-style">
-                                                    :host {
-                                                        color: blue;
-                                                    }
-                                                </style>
+                                            <paper-button raised id="primary-button">
                                                 email
                                             </paper-button>
                                         </a>
@@ -248,9 +224,4 @@
         <!-- endbuild-->
     </body>
     
-    <style>
-        paper-button {
-            color: blue;
-        }
-    </style>
 </html>

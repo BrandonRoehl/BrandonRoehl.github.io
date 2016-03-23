@@ -5,6 +5,28 @@
 <dom-module id="shared-styles">
   <template>
     <style>
+        /* My styles*/
+        
+        paper-button:hover {
+            @apply(--shadow-elevation-4dp);
+        }
+        paper-button[raised]:hover {
+            @apply(--shadow-elevation-8dp);
+        
+        }
+    
+        /*paper-button {
+            --paper-button-ink-color: var(--paper-grey-500);
+        }*/
+    
+        #primary-button {
+            color: white;
+            background: var(--paper-blue-500);
+            --paper-button-ink-color: default;
+        }
+    
+    
+        /* There styles*/
       .page-title {
         @apply(--paper-font-display2);
       }
