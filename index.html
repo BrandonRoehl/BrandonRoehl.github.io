@@ -90,6 +90,12 @@
                             <paper-ripple></paper-ripple>
                         </a>
                         
+                        <a data-route="resume" href="{{baseUrl}}resume">
+                            <!--  <iron-icon icon=""></iron-icon> -->
+                            <span>Resume</span>
+                            <paper-ripple></paper-ripple>
+                        </a>
+                        
                         <a data-route="contact" href="{{baseUrl}}contact">
                             <!-- <iron-icon icon="mail"></iron-icon> -->
                             <span>Contact</span>
@@ -180,6 +186,15 @@
                                     <my-twitter></my-twitter>
                                 </paper-card>
 
+                            </section>
+                            
+                            <!-- Resume Page -->
+                            <section data-route="resume" tabindex="-1">
+                                <h1 class="page-title"></h1>
+                                <object data="/files/resume.pdf" type="application/pdf" width="100%" height="1000">
+                                    <a href="/files/resume.pdf">Download Resume</a>
+                                </object>
+                                
                             </section>
                             
                             <!-- Contact Page -->
