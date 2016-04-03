@@ -7,12 +7,18 @@
     <style>
         /* My styles*/
         
+        paper-button.linked {
+            color: var(--paper-blue-900);
+        }
+        paper-button.linked:hover {
+            color: var(--paper-blue-700);
+        }
         paper-button {
-            background: transparent;
+          background: transparent;
         }
         paper-button:hover {
-            background: white;
-            @apply(--shadow-elevation-3dp);
+          background: white;
+          @apply(--shadow-elevation-3dp);
         }
         paper-button[raised]:hover {
             @apply(--shadow-elevation-6dp);
@@ -24,6 +30,10 @@
         }*/
     
         paper-button.primary {
+            color: white;
+            background: var(--paper-blue-600);
+        }
+        paper-button.primary:hover {
             color: white;
             background: var(--paper-blue-500);
         }

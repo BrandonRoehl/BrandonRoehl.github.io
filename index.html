@@ -51,7 +51,9 @@
         <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
         <!-- endbuild -->
         
-        <!-- Because this project uses vulcanize this should be your only html import in this file. All other imports should go in elements.html -->
+        <link rel="stylesheet" href="../octicons/octicons.css">
+        <!-- Because this project uses vulcanize this should be your only html import in this file. 
+        All other imports should go in elements.html -->
         <link rel="import" href="elements/elements.html">
         
         <!-- For shared styles, shared-styles.html import in elements.html -->
@@ -136,47 +138,32 @@
                                 <h1 class="page-title"></h1>
                                 
                                 <paper-material elevation="1">
-                                    
-                                    <my-greeting></my-greeting>
-                                    
-                                    <p class="subhead">You now have:</p>
-                                    <my-list></my-list>
-                                    
-                                    <p>Looking for more Web App layouts? Check out our
-                                    <a href="https://github.com/PolymerElements/app-layout-templates">
-                                        layouts
-                                    </a>
-                                    collection. You can also
-                                    <a href="http://polymerelements.github.io/app-layout-templates/">
-                                        preview
-                                    </a>
-                                    them live.
-                                    </p>
+                                    About me
                                 </paper-material>
                                 
                                 <paper-material>
                                     <p>
-                                        View my GitHub Profile
+                                        View my projects on GitHub
+                                    </p>
+                                    <p>
                                         <a target="_blank" href="https://github.com/BrandonRoehl" style="color: black; text-decoration: none;">
-                                            <paper-button>
-                                                <iron-icon src="images/icons/github.png" aria-label="" role="img">
-                                                </iron-icon>
-                                                Visit my GitHub
+                                            <paper-button class="linked">
+                                                <span class="octicon octicon-mark-github"></span>
+                                                <span class="octicon octicon-logo-github"></span>
                                             </paper-button>
-                                            
-                                            
                                         </a>
                                     </p>
                                 </paper-material>
                                 
-                                
-                                <a target="_blank" href="https://www.polymer-project.org" style="color: black; text-decoration: none;">
-                                    <paper-button>
-                                        Built with
+                                <p>
+                                    Built with
+                                    <a target="_blank" href="https://www.polymer-project.org" style="color: black; text-decoration: none">  
+                                    <paper-button class="linked">
                                         <iron-icon icon="polymer"></iron-icon>
                                         Polymer
                                     </paper-button>
-                                </a>
+                                        </a>
+                                </p>
                             </section>
             
                             <!-- Twitter Page -->
@@ -216,13 +203,13 @@
                                         BrandonRoehl@gmail.com
                                     </p>
                                     <a target="_blank" href="https://github.com/BrandonRoehl" style="color: black; text-decoration: none;">
-                                        <paper-button>
-                                            <iron-icon src="images/icons/github.png" aria-label="" role="img">
-                                            </iron-icon>
-                                            Visit my GitHub
+                                        <paper-button class="linked">
+                                            <span class="octicon octicon-mark-github"></span>
+                                            <span class="octicon octicon-logo-github"></span>
                                         </paper-button>
                                     </a>
                                 </paper-material>
+                                
                             </section>
                             
                         </iron-pages>
