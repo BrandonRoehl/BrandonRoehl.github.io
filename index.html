@@ -137,8 +137,18 @@
                             <section data-route="home" tabindex="-1">
                                 <h1 class="page-title"></h1>
                                 
-                                <paper-material elevation="1">
+                                <paper-material>
                                     About me
+                                </paper-material>
+
+                                <paper-material>
+                                    <paper-button on-click="toggle">
+                                        <iron-icon></iron-icon>
+                                        My .bash_profile
+                                    </paper-button>
+                                    <iron-collapse id="collapse">
+                                       <div>Content goes here...</div>
+                                    </iron-collapse>
                                 </paper-material>
                                 
                                 <paper-material>
