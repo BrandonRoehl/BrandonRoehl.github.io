@@ -1,0 +1,129 @@
+<!--
+ @license
+ Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+ This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+ The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+ Code distributed by Google as part of the polymer project is also
+ subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/parallax-background.html">
+    <dom-module id="my-view1">
+                
+        <template>
+            
+            <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+            <style is="custom-style">
+                
+                body {
+                    margin: 0;
+                    font-family: 'Roboto', 'Noto', sans-serif;
+                    background-color: #eee;
+                }
+            
+            app-box {
+                height: 640px;
+            }
+            
+            .first {
+                --app-box-background-front-layer: {
+                    background-image: url(/images/keyboard.jpg);
+                    background-position: bottom;
+                    padding-bottom: 120px;
+                    margin-top: -20px;
+                    height: 100%;
+                };
+            }
+            
+            .second {
+                --app-box-background-front-layer: {
+                    background-image: url(/images/pencil.jpg);
+                    background-position: bottom;
+                    padding-bottom: 120px;
+                    margin-top: -20px;
+                    height: 100%;
+                };
+            }
+            
+            .third {
+                --app-box-background-front-layer: {
+                    background-image: url(/images/stratus.jpg);
+                    background-position: bottom;
+                    padding-bottom: 120px;
+                    margin-top: -20px;
+                    height: 100%;
+                };
+            }
+            
+            article {
+                font-weight: 100;
+                max-width: 500px;
+                text-align: center;
+                margin: 100px auto;
+            }
+            article h2 {
+                font-weight: 100;
+                font-size: 50px;
+                margin: 5px;
+            }
+            article p {
+                font-size: 18px;
+                line-height: 30px;
+            }
+            
+            article hr {
+                width: 100px;
+                height: 1px;
+                border: none;
+                margin: 20px auto;
+                background-color: black;
+            }
+            
+                </style>
+            
+            <section>
+                <article>
+                    <hr />
+                    <h2>Programing for tomorrow</h2>
+                    <p>I'm a student at the University of Wisconsion - Eau Claire and work as a Ruby on Rails developer for the university</p>
+                </article>
+                <app-box class="first" effects="parallax-background">
+                </app-box>
+            </section>
+            
+            <section>
+                <article>
+                    <hr />
+                    <h2>GitHub</h2>
+                    <p>You can visit <a href="www.github.com">my github</a> to view my other projects.</p>
+                </article>
+                <app-box class="second" effects="parallax-background"></app-box>
+            </section>
+            
+            <section>
+                <article>
+                    <hr />
+                    <h2>Using Web Components</h2>
+                    <p>Polymer leverages web components, a new set of standards designed to provide reusable components for the web.</p>
+                </article>
+                <app-box class="third" effects="parallax-background"></app-box>
+            </section>
+            
+            <section>
+                <article>
+                    <hr />
+                    <h2>Built with polymer</h2>
+                    <p>Though I'm a rails developer this website is built with the polymer libraries.</p>
+                </article>
+            </section>
+            
+        </template>
+        
+    <script>
+        Polymer({
+            is: 'my-view1'
+        });
+    </script>
+</dom-module>
