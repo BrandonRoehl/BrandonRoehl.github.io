@@ -17,71 +17,65 @@
             <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
             <style is="custom-style">
                 
-                body {
-                    margin: 0;
-                    font-family: 'Roboto', 'Noto', sans-serif;
-                    background-color: #eee;
+                app-box {
+                    height: 640px;
                 }
             
-            app-box {
-                height: 640px;
-            }
+                .first {
+                    --app-box-background-front-layer: {
+                        background-image: url(/images/keyboard.jpg);
+                        background-position: bottom;
+                        padding-bottom: 120px;
+                        margin-top: -20px;
+                        height: 100%;
+                    };
+                }
             
-            .first {
-                --app-box-background-front-layer: {
-                    background-image: url(/images/keyboard.jpg);
-                    background-position: bottom;
-                    padding-bottom: 120px;
-                    margin-top: -20px;
-                    height: 100%;
-                };
-            }
+                .second {
+                    --app-box-background-front-layer: {
+                        background-image: url(/images/pencil.jpg);
+                        background-position: bottom;
+                        padding-bottom: 120px;
+                        margin-top: -20px;
+                        height: 100%;
+                    };
+                }
             
-            .second {
-                --app-box-background-front-layer: {
-                    background-image: url(/images/pencil.jpg);
-                    background-position: bottom;
-                    padding-bottom: 120px;
-                    margin-top: -20px;
-                    height: 100%;
-                };
-            }
+                .third {
+                    --app-box-background-front-layer: {
+                        background-image: url(/images/stratus.jpg);
+                        background-position: bottom;
+                        padding-bottom: 120px;
+                        margin-top: -20px;
+                        height: 100%;
+                    };
+                }
             
-            .third {
-                --app-box-background-front-layer: {
-                    background-image: url(/images/stratus.jpg);
-                    background-position: bottom;
-                    padding-bottom: 120px;
-                    margin-top: -20px;
-                    height: 100%;
-                };
-            }
+                article {
+                    font-weight: 100;
+                    max-width: 500px;
+                    text-align: center;
+                    margin: 100px auto;
+                }
+                article h2 {
+                    font-weight: 100;
+                    font-size: 50px;
+                    margin: 5px;
+                }
+                article p {
+                    font-size: 18px;
+                    line-height: 30px;
+                }
             
-            article {
-                font-weight: 100;
-                max-width: 500px;
-                text-align: center;
-                margin: 100px auto;
-            }
-            article h2 {
-                font-weight: 100;
-                font-size: 50px;
-                margin: 5px;
-            }
-            article p {
-                font-size: 18px;
-                line-height: 30px;
-            }
+                article hr {
+                    width: 100px;
+                    height: 1px;
+                    border: none;
+                    margin: 20px auto;
+                    background-color: black;
+                }
             
-            article hr {
-                width: 100px;
-                height: 1px;
-                border: none;
-                margin: 20px auto;
-                background-color: black;
-            }
-            
-                </style>
+            </style>
             
             <section>
                 <article>
