@@ -12,15 +12,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-
-
-
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 
 
@@ -30,81 +29,94 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <template>
 
-        <style>
+    <style>
 
-            :host {
-                display: block;
-                --app-primary-color: #4285f4;
-                --app-secondary-color: black;
-            }
+  :host {
+    display: block;
+    --app-primary-color: #4285f4;
+    --app-secondary-color: black;
+  }
 
-            .drawer-list {
-                margin: 0 20px;
-            }
-            .drawer-list a {
-                display: block;
-                padding: 0 16px;
-                line-height: 40px;
-                text-decoration: none;
-                color: var(--app-secondary-color);
-            }
-            .drawer-list a.iron-selected {
-                color: black;
-                font-weight: bold;
-            }
-            .drawer-list a.subroute {
-                padding-left: 32px;
-            }
+  .drawer-list {
+    margin: 0 20px;
+  }
+  .drawer-list a {
+    display: block;
+    padding: 0 16px;
+    line-height: 40px;
+    text-decoration: none;
+    color: var(--app-secondary-color);
+  }
+  .drawer-list a.iron-selected {
+    color: black;
+    font-weight: bold;
+  }
+  .drawer-list a.subroute {
+    padding-left: 32px;
+  }
 
-            paper-scroll-header-panel {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-color: var(--paper-grey-200, #eee);
-                /* background for toolbar when it is at its full size */
-                --paper-scroll-header-panel-full-header: {
-                    background-image: url(../images/header.png);
-                    background-position: right center;
-                };
-                /* background for toolbar when it is condensed */
-                --paper-scroll-header-panel-condensed-header: {
-                    background-color: rgba(0, 0, 0, 0.7);
-                    -webkit-backdrop-filter: blur(5px);
-                };
-            }
-            paper-icon-button {
-                --paper-icon-button-ink-color: white;
-            }
-            paper-toolbar.tall {
-                background-color: transparent;
-            }
-            paper-toolbar.tall .title {
-                font-size: 40px !important;
-                margin-left: 60px !important;
-                -webkit-transform-origin: left center !important;
-                transform-origin: left center !important;
-            }
-            .content {
-                padding: 8px;
-            }
-            .spacer {
-                @apply(--layout-flex);
-            }
-        </style>
+  app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    -webkit-backdrop-filter: blur(5px);
+    --app-header-background-front-layer: {
+        background-color: #000000;
+        background-image: url(../images/header.png);
+        background-position: right center;
+        background-size: cover;
+    };
+    --app-header-background-rear-layer: {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+  paper-icon-button {
+    --paper-icon-button-ink-color: white;
+  }
+  paper-fab {
+    position: absolute;
+    right: 16px;
+    top: 248px;
+    will-change: transform;
+    transition: 0.1s -webkit-transform;
+    transition: 0.1s transform;
+  }
+  paper-fab.shrink-to-hidden {
+    -webkit-transform: scale3d(0, 0, 0);
+    transform: scale3d(0, 0, 0);
+  }
+  app-toolbar.middle {
+    height: 200px;
+  }
+  app-toolbar.bottom {
+    height: 92px;
+  }
+  sample-content {
+    padding-top: 276px;
+  }
+  #sig-header {
+    margin-left: 45px;
+    height: 60px;
+    width: auto;
+    top: 10px;
+    position: relative;
+  }
+
+</style>
 
         <app-location use-hash-as-path route="{{route}}"></app-location>
         <app-route
-                      route="{{route}}"
-                      pattern="/:page"
-                      data="{{routeData}}"
-                      tail="{{subroute}}"></app-route>
-        
+                    route="{{route}}"
+                    pattern="/:page"
+                    data="{{routeData}}"
+                    tail="{{subroute}}"></app-route>
+
         <app-drawer-layout fullbleed>
-            
+
             <!-- Drawer content -->
-            <app-drawer>
+            <app-drawer swipe-open>
                 <app-toolbar>Work in Progress</app-toolbar>
                 <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
                     <a name="view1" href="#/" style="position: relative"><paper-ripple></paper-ripple>View One</a>
@@ -112,35 +124,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <a name="view3" href="#/view3" style="position: relative"><paper-ripple></paper-ripple>View Three</a>
                 </iron-selector>
             </app-drawer>
-            
+
             <!-- Main content -->
-            <div>
-                <paper-scroll-header-panel condenses keep-condensed-header>
-                    
-                    <paper-toolbar class="tall">
-                        
+            <app-header-layout>
+                <app-header effects="waterfall blend-background parallax-background" condenses fixed>
+                    <app-toolbar>
                         <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-                        <div class="spacer"></div>
-                        <paper-icon-button icon="more-vert"></paper-icon-button>
-                        <div class="bottom title"><img background src="../images/sig.png" style="width:auto; height: 50px" /></div>
-                        
-                    </paper-toolbar>
-                    </paper-scroll-header>
-                    
-                    <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
-                        <my-view1 name="view1"></my-view1>
-                        <my-view2 name="view2"></my-view2>
-                        <my-view3 name="view3"></my-view3>
-                    </iron-pages>
-                    </div>
+                    </app-toolbar>
+                    <app-toolbar class="middle"></app-toolbar>
+                    <app-toolbar class="bottom">
+                        <img src="../images/sig.png" id="sig-header" />
+                    </app-toolbar>
+                </app-header>
+                <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+                    <my-view1 name="view1"></my-view1>
+                    <my-view2 name="view2"></my-view2>
+                    <my-view3 name="view3"></my-view3>
+                </iron-pages>
+            </app-header-layout>
         </app-drawer-layout>
-        
+
     </template>
 
     <script>
 
         Polymer({
-                
+
             is: 'my-app',
 
             properties: {
