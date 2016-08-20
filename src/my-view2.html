@@ -10,6 +10,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 
 <dom-module id="my-view2">
 
@@ -47,7 +49,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <h1>View Two</h1>
       <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
       <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+      <paper-button raised class="heading" aria-expanded$="[[isExpanded(opened)]]" aria-controls="collapse" onclick="toggle()">Collapse #1</paper-button>
     </paper-card>
+    <iron-collapse id="collapse" tabindex="0" opened="{{opened}}">
+        <paper-card class="content">
+            <div>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea, id minim maiestatis incorrupte duo. Dolorum verterem ad ius, his et nullam verterem. Eu alia debet usu, an doming tritani est. Vix ad ponderum petentium suavitate, eum eu tempor populo, graece sententiae constituam vim ex. Cu torquatos reprimique neglegentur nec, voluptua periculis has ut, at eos discere deleniti sensibus. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea, id minim maiestatis incorrupte duo. Dolorum verterem ad ius, his et nullam verterem. Eu alia debet usu, an doming tritani est. Vix ad ponderum petentium suavitate, eum eu tempor populo, graece sententiae constituam vim ex. Cu torquatos reprimique neglegentur nec, voluptua periculis has ut, at eos discere deleniti sensibus.</div>
+        </paper-card>
+    </iron-collapse>
 
   </template>
 
@@ -58,6 +66,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       is: 'my-view2'
 
     });
+
+    function toggle() {
+        document.querySelector('#collapse').toggle();
+    }
 
   </script>
 
