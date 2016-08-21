@@ -137,9 +137,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       });
 
       test('content layout', function(done) {
-        var listenerSpy = sinon.spy();
         var xResizeable = drawerLayout.querySelector('x-resizeable');
-        xResizeable.addEventListener('iron-resize', listenerSpy);
+        var listenerSpy = sinon.spy(xResizeable, 'notifyResize');
         drawerLayout.responsiveWidth = '10000px';
 
         window.setTimeout(function() {
@@ -167,6 +166,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }, 50);
           }, 50);
         }, 50);
+      });
+
+      test('iron-resize triggers content layout', function() {
+        var resetLayoutSpy = sinon.spy(drawerLayout, 'resetLayout');
+
+        assert.isFalse(resetLayoutSpy.called);
+
+        drawerLayout.notifyResize();
+
+        assert.isTrue(resetLayoutSpy.called);
+
+        resetLayoutSpy.restore();
       });
     });
 
