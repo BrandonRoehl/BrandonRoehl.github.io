@@ -10,7 +10,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/parallax-background.html">
-<link rel="import" href="../bower_components/app-layout/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
     <dom-module id="my-view1">
                 
         <template>
@@ -75,6 +75,11 @@
                     margin: 20px auto;
                     background-color: black;
                 }
+                .git-link, .git-link:active, .git-link:hover {
+                    font-weight: bold;
+                    text-decoration: none;
+                    color: rgb(5, 111, 255);
+                }
             
             </style>
             
@@ -92,7 +97,8 @@
                 <article>
                     <hr />
                     <h2>GitHub</h2>
-                    <p>You can visit <a href="https://github.com/BrandonRoehl">my github</a> to view my other projects.</p>
+                    <p>You can visit my github to view my other projects.</p>
+                    <a class="git-link" target="_blank" href="https://github.com/BrandonRoehl"><paper-button>github</paper-button></a>
                 </article>
                 <app-box class="second" effects="parallax-background"></app-box>
             </section>
