@@ -44,6 +44,16 @@
             
                 .third {
                     --app-box-background-front-layer: {
+                        background-image: url(/images/terminal.png);
+                        background-position: bottom;
+                        padding-bottom: 120px;
+                        margin-top: -20px;
+                        height: 100%;
+                    };
+                }
+
+                .fourth {
+                    --app-box-background-front-layer: {
                         background-image: url(/images/stratus.jpg);
                         background-position: bottom;
                         padding-bottom: 120px;
@@ -118,6 +128,7 @@
                     <h2>Built with polymer</h2>
                     <p>Though I'm a rails developer this website is built with the polymer libraries.</p>
                 </article>
+                <app-box class="fourth" effects="parallax-background"></app-box>
             </section>
             
         </template>
