@@ -149,11 +149,12 @@
 
     <script>
         Polymer({
-        is: 'my-view1',
-        openModal: function() {
-            var body = document.querySelector('body');
-            Polymer.dom(body).appendChild(this.$.modal);
-            this.$.modal.open();
+            is: 'my-view1',
+            openModal: function() {
+                var body = document.querySelector('body');
+                Polymer.dom(body).appendChild(this.$.modal);
+                this.$.modal.open();
+            }
         });
     </script>
 </dom-module>
