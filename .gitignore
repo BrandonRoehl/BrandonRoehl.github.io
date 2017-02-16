@@ -4,3 +4,4 @@ build
 _site
 *.swp
 *.swo
+.DS_Store
