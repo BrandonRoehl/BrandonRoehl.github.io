@@ -15,8 +15,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
-<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
-<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
@@ -61,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     left: 0;
     width: 100%;
     color: #fff;
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
     --app-header-background-front-layer: {
         background-color: #000000;
         background-image: url(../images/header.png);
@@ -69,7 +67,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-size: cover;
     };
     --app-header-background-rear-layer: {
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.75);
     }
   }
   paper-icon-button {
@@ -96,13 +94,42 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   sample-content {
     padding-top: 276px;
   }
-  #sig-header {
-    margin-left: 45px;
-    height: 60px;
-    width: auto;
-    top: 10px;
-    position: relative;
+
+  [condensed-title] {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 90px;
+      right: 0;
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 200px;
+      background-image: url('../images/sig.png');
+
+      /* The difference in font size is used to calculate the scale of the title in the transition. */
+      font-size: 20px;
   }
+
+  [main-title] {
+      position: absolute;
+      top: -70px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 500px;
+      -webkit-transform-origin: left top !important;
+      transform-origin: left top !important;
+      background-image: url('../images/sig.png');
+
+      /* The difference in font size is used to calculate the scale of the title in the transition. */
+      font-size: 50px;
+  }
+  app-header {
+    position: fixed;
+  }
+
 
 </style>
 
@@ -128,14 +155,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             <!-- Main content -->
             <app-header-layout>
-                <app-header effects="waterfall blend-background parallax-background" effects-config='{"parallax-background": {"scalar": 0.5}}' condenses fixed>
+                <app-header effects="waterfall blend-background parallax-background resize-title" effects-config='{"parallax-background": {"scalar": 0.5}}' condenses fixed>
                     <app-toolbar>
                         <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-                        <h4 main-title></h4>
+                        <div condensed-title></div>
                     </app-toolbar>
                     <app-toolbar class="middle"></app-toolbar>
                     <app-toolbar class="bottom">
-                        <img src="../images/sig.png" id="sig-header" />
+                        <div main-title></div>
+                        <!-- <img src="../images/sig.png" id="sig-header" /> -->
                     </app-toolbar>
                 </app-header>
                 <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
