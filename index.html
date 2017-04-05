@@ -16,12 +16,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <title>My App</title>
 
-  <link rel="shortcut icon" sizes="32x32" href="/images/app-icon-32.png">
+  <link rel="shortcut icon" sizes="32x32" href="./images/app-icon-32.png">
 
   <meta name="theme-color" content="#000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="./manifest.json">
 
   <script>
 
@@ -37,7 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       } else {
         // polyfill web components
         var e = document.createElement('script');
-        e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        e.src = './bower_components/webcomponentsjs/webcomponents-lite.min.js';
         document.head.appendChild(e);
       }
     })();
@@ -45,13 +45,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // load pre-caching service worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js');
+        navigator.serviceWorker.register('./service-worker.js');
       });
     }
 
   </script>
 
-  <link rel="import" href="/src/my-app.html">
+  <link rel="import" href="./src/my-app.html">
 
   <style>
 
