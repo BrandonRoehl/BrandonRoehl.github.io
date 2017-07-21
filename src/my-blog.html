@@ -13,27 +13,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
 
 <dom-module id="my-blog">
 
   <template>
 
-    <style>
-      :host {
-        display: block;
-        padding: 10px;
-      }
+    <style is="custom-style">
+        :host {
+            display: block;
+            padding: 10px;
+        }
+        paper-tab[link] a {
+            /* These mixins (from iron-flex-layout) center the link text. */
+            @apply --layout-horizontal;
+            @apply --layout-center-center;
+            color: #212121;
+            padding: 1em;
+            text-decoration: none;
+        }
+        :root {
+            --paper-tab-ink: var(--paper-blue-700);
+            --paper-tabs-selection-bar-color: var(--paper-blue-700);
+        }
     </style>
-
-    <div class="card">
-        <ul>
-            {% for post in site.posts %}
-            <li>
-                <a href="#/blog/{{post.url|remove:'/blog/'|remove:'.html'}}">{{ post.title }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
 
     {% raw  %}
     <app-route
@@ -41,6 +45,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         pattern="/:post"
         data="{{routeData}}"></app-route>
     {% endraw %}
+
+    <paper-tabs selected="[[post]]" scrollable attr-for-selected="name">
+        {% for post in site.posts %}
+        <paper-tab link name="{{post.url|remove:'/blog/'|remove:'.html'}}">
+            <a href="#/blog/{{post.url|remove:'/blog/'|remove:'.html'}}" tabindex="-1">{{ post.title }}</a>
+        </paper-tab>
+        {% endfor %}
+    </paper-tabs>
+
     <iron-pages selected="[[post]]" attr-for-selected="name">
         {% for post in site.posts %}
             <{{post.url|remove:'/blog/'|remove:'.html'}} name="{{post.url|remove:'/blog/'|remove:'.html'}}"></{{post.url|remove:'/blog/'|remove:'.html'}}>
