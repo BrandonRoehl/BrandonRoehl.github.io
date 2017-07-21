@@ -11,6 +11,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 
 <dom-module id="my-blog">
 
@@ -29,15 +31,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <li>
                 <a href="#/blog/{{post.url|remove:'/blog/'|remove:'.html'}}">{{ post.title }}</a>
             </li>
-            {{post.url|remove:'/blog/'|remove:'.html'}}
             {% endfor %}
         </ul>
     </div>
 
+    {% raw  %}
     <app-route
         route="{{route}}"
         pattern="/:post"
         data="{{routeData}}"></app-route>
+    {% endraw %}
     <iron-pages selected="[[post]]" attr-for-selected="name">
         {% for post in site.posts %}
             <{{post.url|remove:'/blog/'|remove:'.html'}} name="{{post.url|remove:'/blog/'|remove:'.html'}}"></{{post.url|remove:'/blog/'|remove:'.html'}}>
@@ -66,7 +69,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         _routePageChanged: function(post) {
             this.post = post || "{{site.posts.first.url|remove:'/blog/'|remove:'.html'}}";
-            console.err(post);
         },
 
         _pageChanged: function(post) {
