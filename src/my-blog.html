@@ -27,18 +27,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <ul>
             {% for post in site.posts %}
             <li>
-                <a href="{{ post.url }}">{{ post.title }}</a>
+                <a href="#/blog/{{post.url|remove:'/blog/'|remove:'.html'}}">{{ post.title }}</a>
             </li>
+            {{post.url|remove:'/blog/'|remove:'.html'}}<br />
+            {{post.url}}
             {% endfor %}
         </ul>
     </div>
+
+    <app-route
+        route="{{route}}"
+        pattern="/:post"
+        data="{{routeData}}"></app-route>
+    <iron-pages selected="[[post]]" attr-for-selected="name">
+        {% for post in site.posts %}
+            <{{post.url|remove:'/blog/'|remove:'.html'}} name="{{post.url|remove:'/blog/'|remove:'.html'}}"></{{post.url|remove:'/blog/'|remove:'.html'}}>
+        {% endfor %}
+    </iron-pages>
 
   </template>
 
   <script>
 
     Polymer({
-      is: 'my-blog'
+        is: 'my-blog',
+
+        observers: [
+            '_routePageChanged(routeData.post)'
+        ],
+
+        _routePageChanged: function(post) {
+            this.post = post || '';
+            console.err(post);
+        },
+
+        _pageChanged: function(post) {
+            // load page import on demand.
+            this.importHref(this.resolveUrl('../blog/' + post + '.html'), null, null, true);
+        }
+
     });
 
   </script>

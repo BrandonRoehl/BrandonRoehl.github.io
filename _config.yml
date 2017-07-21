@@ -1,3 +1,4 @@
 port: 3000
 sass:
     sass_dir: stylesheets
+permalink: /blog/post-:year-:month-:day-:title.html
