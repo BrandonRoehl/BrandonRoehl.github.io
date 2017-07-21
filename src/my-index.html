@@ -1,3 +1,5 @@
+---
+---
 <!--
  @license
  Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
@@ -108,11 +110,11 @@
         <section>
             <article>
                 <paper-card class="code header">
-                    <!-- {% highlight swift %} -->
-                    while self.bored {<br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;self.code<br />
-                    }
-                    <!-- {% endhighlight %} -->
+{% highlight ruby %}
+while self.bored do
+    self.code
+end
+{% endhighlight %}
                 </paper-card>
                 <p>I'm a student at the University of Wisconsion - Eau Claire and work as a Ruby on Rails developer for the university</p>
                 <paper-button raised on-click="openModal">Resume</paper-button>
@@ -149,7 +151,7 @@
             <app-box class="fourth" effects="parallax-background"></app-box>
         </section>
 
-        <paper-dialog id="modal" modal style="width: 70%; height: 90%;">
+        <paper-dialog id="modal" modal>
             <div style="width: calc(100% - 4em); height: calc(100% - 6em);">
                 <object data="files/Resume.pdf" type="application/pdf" width="100%" height="100%">
                     <p>Alternative text - include a link <a href="files/Resume.pdf">to the PDF!</a></p>

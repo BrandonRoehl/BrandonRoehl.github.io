@@ -1,0 +1,23 @@
+---
+---
+body {
+    margin: 0;
+    font-family: 'Roboto', 'Noto', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background-color: #eee;
+}
+
+* {
+    outline: none;
+}
+
+#modal {
+    position: fixed;
+    margin: 3em 12.5%;
+    width: 75%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
