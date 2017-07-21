@@ -29,8 +29,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <li>
                 <a href="#/blog/{{post.url|remove:'/blog/'|remove:'.html'}}">{{ post.title }}</a>
             </li>
-            {{post.url|remove:'/blog/'|remove:'.html'}}<br />
-            {{post.url}}
+            {{post.url|remove:'/blog/'|remove:'.html'}}
             {% endfor %}
         </ul>
     </div>
@@ -52,12 +51,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer({
         is: 'my-blog',
 
+        properties: {
+
+            post: {
+                type: String,
+                reflectToAttribute: true,
+                observer: '_pageChanged'
+            },
+        },
+
         observers: [
             '_routePageChanged(routeData.post)'
         ],
 
         _routePageChanged: function(post) {
-            this.post = post || '';
+            this.post = post || "{{site.posts.first.url|remove:'/blog/'|remove:'.html'}}";
             console.err(post);
         },
 

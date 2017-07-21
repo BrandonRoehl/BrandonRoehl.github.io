@@ -2,9 +2,8 @@
 ---
 
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../../bower_components/paper-card/paper-card.html">
 
-<dom-module id="post-{{page.id}}">
+<dom-module id="{{page.url|remove:'/blog/'|remove:'.html'}}">
 
     <template>
 
@@ -13,20 +12,14 @@
                 display: block;
                 padding: 10px;
             }
-            paper-card {
-                padding: 1em;
-            }
         </style>
-        <paper-card>
-            {{ content }}
-        </paper-card>
-
+        {{ content }}
     </template>
 
     <script>
 
         Polymer({
-            is: "post-{{page.id}}"
+            is: "{{page.url|remove:'/blog/'|remove:'.html'}}"
         });
 
     </script>
