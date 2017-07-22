@@ -1,0 +1,21 @@
+<!-- shared-styles.html -->
+<dom-module id="shared-styles">
+    <template>
+        <style>
+            paper-tab[link] a {
+                /* These mixins (from iron-flex-layout) center the link text. */
+                @apply --layout-horizontal;
+                @apply --layout-center-center;
+                color: #212121;
+                padding: 1em;
+                text-decoration: none;
+            }
+            :root {
+                --app-primary-color: #4285f4;
+                --app-secondary-color: black;
+                --paper-tab-ink: var(--paper-blue-700);
+                --paper-tabs-selection-bar-color: var(--paper-blue-700);
+            }
+        </style>
+    </template>
+</dom-module>

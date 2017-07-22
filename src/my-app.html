@@ -1,12 +1,3 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
@@ -19,119 +10,117 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../stylesheets/shared-styles.html">
 
 
 <!-- <link rel="import" href="my-icons.html"> -->
-
 <dom-module id="my-app">
 
     <template>
 
-    <style>
+        <style include="shared-styles"></style>
+        <style>
+            :host {
+                display: block;
+            }
 
-  :host {
-    display: block;
-    --app-primary-color: #4285f4;
-    --app-secondary-color: black;
-  }
+            .drawer-list {
+                margin: 0 20px;
+            }
+            .drawer-list a {
+                display: block;
+                padding: 0 16px;
+                line-height: 40px;
+                text-decoration: none;
+                color: var(--app-secondary-color);
+            }
+            .drawer-list .iron-selected {
+                color: white;
+                background: black;
+            }
+            .drawer-list a.subroute {
+                padding-left: 32px;
+            }
 
-  .drawer-list {
-    margin: 0 20px;
-  }
-  .drawer-list a {
-    display: block;
-    padding: 0 16px;
-    line-height: 40px;
-    text-decoration: none;
-    color: var(--app-secondary-color);
-  }
-  .drawer-list .iron-selected {
-    color: white;
-    background: black;
-  }
-  .drawer-list a.subroute {
-    padding-left: 32px;
-  }
+            app-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                color: #fff;
+                -webkit-backdrop-filter: blur(10px) saturate(2);
+                --app-header-background-front-layer: {
+                    background-color: #000000;
+                    background-image: url('../images/header.png');
+                    background-position: center;
+                    background-size: cover;
+                };
+                --app-header-background-rear-layer: {
+                    background-color: rgba(0, 0, 0, 0.75);
+                }
+            }
+            paper-icon-button {
+                --paper-icon-button-ink-color: white;
+            }
+            paper-fab {
+                position: absolute;
+                right: 16px;
+                top: 248px;
+                will-change: transform;
+                transition: 0.1s -webkit-transform;
+                transition: 0.1s transform;
+            }
+            paper-fab.shrink-to-hidden {
+                -webkit-transform: scale3d(0, 0, 0);
+                transform: scale3d(0, 0, 0);
+            }
+            app-toolbar.middle {
+                height: 200px;
+            }
+            app-toolbar.bottom {
+                height: 92px;
+            }
+            sample-content {
+                padding-top: 276px;
+            }
 
-  app-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: #fff;
-    -webkit-backdrop-filter: blur(10px) saturate(2);
-    --app-header-background-front-layer: {
-        background-color: #000000;
-        background-image: url('../images/header.png');
-        background-position: center;
-        background-size: cover;
-    };
-    --app-header-background-rear-layer: {
-        background-color: rgba(0, 0, 0, 0.75);
-    }
-  }
-  paper-icon-button {
-    --paper-icon-button-ink-color: white;
-  }
-  paper-fab {
-    position: absolute;
-    right: 16px;
-    top: 248px;
-    will-change: transform;
-    transition: 0.1s -webkit-transform;
-    transition: 0.1s transform;
-  }
-  paper-fab.shrink-to-hidden {
-    -webkit-transform: scale3d(0, 0, 0);
-    transform: scale3d(0, 0, 0);
-  }
-  app-toolbar.middle {
-    height: 200px;
-  }
-  app-toolbar.bottom {
-    height: 92px;
-  }
-  sample-content {
-    padding-top: 276px;
-  }
+            [condensed-title] {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 90px;
+                right: 0;
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: 200px;
+                background-image: url('../images/sig.png');
 
-  [condensed-title] {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 90px;
-      right: 0;
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 200px;
-      background-image: url('../images/sig.png');
+                /* The difference in font size is used to calculate the scale of the title in the transition. */
+                font-size: 20px;
+            }
 
-      /* The difference in font size is used to calculate the scale of the title in the transition. */
-      font-size: 20px;
-  }
+            [main-title] {
+                position: absolute;
+                top: -30px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: 370px;
+                -webkit-transform-origin: left top !important;
+                transform-origin: left top !important;
+                background-image: url('../images/sig.png');
 
-  [main-title] {
-      position: absolute;
-      top: -30px;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 370px;
-      -webkit-transform-origin: left top !important;
-      transform-origin: left top !important;
-      background-image: url('../images/sig.png');
-
-      /* The difference in font size is used to calculate the scale of the title in the transition. */
-      font-size: 37px;
-  }
-  app-header {
-    position: fixed;
-  }
+                /* The difference in font size is used to calculate the scale of the title in the transition. */
+                font-size: 37px;
+            }
+            app-header {
+                position: fixed;
+            }
 
 
-</style>
+        </style>
 
         <app-location use-hash-as-path route="{{route}}"></app-location>
         <app-route

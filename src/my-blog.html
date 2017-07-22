@@ -1,43 +1,23 @@
 ---
 ---
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../stylesheets/shared-styles.html">
 
 <dom-module id="my-blog">
 
-  <template>
+    <template>
 
-    <style is="custom-style">
-        :host {
-            display: block;
-            padding: 10px;
-        }
-        paper-tab[link] a {
-            /* These mixins (from iron-flex-layout) center the link text. */
-            @apply --layout-horizontal;
-            @apply --layout-center-center;
-            color: #212121;
-            padding: 1em;
-            text-decoration: none;
-        }
-        :root {
-            --paper-tab-ink: var(--paper-blue-700);
-            --paper-tabs-selection-bar-color: var(--paper-blue-700);
-        }
-    </style>
+        <style include="shared-styles"></style>
+        <style is="custom-style">
+            :host {
+                display: block;
+                padding: 10px;
+            }
+        </style>
 
     {% raw  %}
     <app-route
@@ -55,12 +35,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         {% endfor %}
     </paper-tabs>
 
-    <iron-pages selected="[[post]]" attr-for-selected="name">
-        {% for post in site.posts %}
+    <paper-card>
+        <iron-pages selected="[[post]]" attr-for-selected="name">
+            {% for post in site.posts %}
             {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
             <{{name}} name="{{name}}"></{{name}}>
-        {% endfor %}
-    </iron-pages>
+            {% endfor %}
+        </iron-pages>
+    </paper-card>
 
   </template>
 
