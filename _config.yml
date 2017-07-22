@@ -13,7 +13,7 @@ twitter_username: BrandonRoehl
 defaults:
   -
     scope:
-      path: "" # empty string for all files
+      path: "_posts"
       type: "posts"
     values:
       layout: "post"

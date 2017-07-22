@@ -1,10 +1,9 @@
----
----
+{% assign name = page.url|remove:'/blog/'|remove:'.html' %}
 
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 
-<dom-module id="{{page.url|remove:'/blog/'|remove:'.html'}}">
+<dom-module id="{{name}}">
 
     <template>
 
@@ -29,7 +28,7 @@
     <script>
 
         Polymer({
-            is: "{{page.url|remove:'/blog/'|remove:'.html'}}"
+            is: "{{name}}"
         });
 
     </script>

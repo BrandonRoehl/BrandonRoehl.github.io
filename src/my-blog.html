@@ -48,15 +48,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <paper-tabs selected="[[post]]" scrollable attr-for-selected="name">
         {% for post in site.posts %}
-        <paper-tab link name="{{post.url|remove:'/blog/'|remove:'.html'}}">
-            <a href="/#/blog/{{post.url|remove:'/blog/'|remove:'.html'}}" tabindex="-1">{{ post.title }}</a>
+        {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
+        <paper-tab link name="{{name}}">
+            <a href="/#/blog/{{name}}" tabindex="-1">{{ post.title }}</a>
         </paper-tab>
         {% endfor %}
     </paper-tabs>
 
-    <iron-pages selected="[[post]]" attr-for-selected="name" autoselect>
+    <iron-pages selected="[[post]]" attr-for-selected="name">
         {% for post in site.posts %}
-            <{{post.url|remove:'/blog/'|remove:'.html'}} name="{{post.url|remove:'/blog/'|remove:'.html'}}"></{{post.url|remove:'/blog/'|remove:'.html'}}>
+            {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
+            <{{name}} name="{{name}}"></{{name}}>
         {% endfor %}
     </iron-pages>
 
