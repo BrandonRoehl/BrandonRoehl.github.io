@@ -2,11 +2,13 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../stylesheets/shared-styles.html">
 
 <dom-module id="my-trubool">
 
 	<template>
 
+        <style include="shared-styles"></style>
 		<style>
 			:host {
 				display: block;
@@ -21,17 +23,12 @@
 				margin: 16px 0;
 				color: #212121;
 			}
-			.link, .link:active, .link:hover {
-				font-weight: bold;
-				text-decoration: none;
-				color: rgb(5, 111, 255);
-			}
 		</style>
 
 		<paper-card>
 			<h1>TruBool</h1>
 			<p><strong>TruBool</strong> is an application to teach boolean operations in a fun and interactive way</p>
-			<a class="link" href="https://trubool.brandonroehl.org"><paper-button>TruBool</paper-button></a>
+			<a href="https://trubool.brandonroehl.org"><paper-button>TruBool</paper-button></a>
 		</paper-card>
 	</template>
 
