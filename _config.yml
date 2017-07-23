@@ -7,7 +7,8 @@ permalink: /blog/post-:year-:month-:day-:title.html
 title: Brandon's Homepage
 email: BrandonRoehl@gmail.com
 description: >
- Welcome to my blog!
+ My personal website
+ This also contains my blog
 github_username: BrandonRoehl
 twitter_username: BrandonRoehl
 defaults:
