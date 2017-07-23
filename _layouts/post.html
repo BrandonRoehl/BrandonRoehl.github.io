@@ -1,12 +1,9 @@
 {% assign name = page.url|remove:'/blog/'|remove:'.html' %}
-
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../stylesheets/shared-styles.html">
-
 <dom-module id="{{name}}">
-
     <template>
         <link rel="stylesheet" type="text/css" href="../../../../stylesheets/one-light.css">
         <style include="shared-styles"></style>
@@ -24,13 +21,9 @@
         </h1>
         {{ content }}
     </template>
-
     <script>
-
         Polymer({
             is: "{{name}}"
         });
-
     </script>
-
 </dom-module>

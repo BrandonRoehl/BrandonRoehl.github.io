@@ -15,12 +15,17 @@
         <style is="custom-style">
             :host {
                 display: block;
-                padding: 10px;
-                margin: 0 2em;
+                padding-top: 1em;
             }
-            paper-card {
+            .container {
                 width: 100%;
-                padding: 1em;
+                max-width: 60rem;
+                display: block;
+                margin: 0 auto;
+            }
+            .container paper-card {
+                width: 100%;
+                padding: 0.5em;
             }
         </style>
 
@@ -31,23 +36,25 @@
         data="{{routeData}}"></app-route>
     {% endraw %}
 
-    <paper-tabs selected="[[post]]" scrollable attr-for-selected="name">
-        {% for post in site.posts %}
-        {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
-        <paper-tab link name="{{name}}">
-            <a href="/#/blog/{{name}}" tabindex="-1">{{ post.title }}</a>
-        </paper-tab>
-        {% endfor %}
-    </paper-tabs>
-
-    <paper-card>
-        <iron-pages selected="[[post]]" attr-for-selected="name">
+    <div class="container">
+        <paper-tabs selected="[[post]]" scrollable attr-for-selected="name">
             {% for post in site.posts %}
             {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
-            <{{name}} name="{{name}}"></{{name}}>
+            <paper-tab link name="{{name}}">
+                <a href="/#/blog/{{name}}" tabindex="-1">{{ post.title }}</a>
+            </paper-tab>
             {% endfor %}
-        </iron-pages>
-    </paper-card>
+        </paper-tabs>
+
+        <paper-card>
+            <iron-pages selected="[[post]]" attr-for-selected="name">
+                {% for post in site.posts %}
+                {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
+                <{{name}} name="{{name}}"></{{name}}>
+                {% endfor %}
+            </iron-pages>
+        </paper-card>
+    </div>
 
   </template>
 
