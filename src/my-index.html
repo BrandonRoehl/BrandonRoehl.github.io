@@ -8,10 +8,9 @@
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 <dom-module id="my-index">
 
-    <link rel="stylesheet" type="text/css" href="../stylesheets/one-light.css">
     <template>
 
-        <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../stylesheets/one-light.css">
         <style is="custom-style">
             app-box {
                 height: 640px;
@@ -91,6 +90,11 @@
             }
             .code.header {
                 font-size: 2em;
+            }
+            pre code {
+                border: none;
+                background: none;
+                box-shadow: none;
             }
 
         </style>

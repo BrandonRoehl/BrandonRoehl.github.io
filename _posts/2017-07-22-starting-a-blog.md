@@ -1,4 +1,3 @@
-# Starting a blog
 I am now starting a blog on my website using `Jekyll`
 
 This is hosted on [GitHub Pages](https://pages.github.com)
@@ -9,6 +8,8 @@ Here are the steps that it took for me to get this working
 ```ruby
 source 'https://rubygems.org'
 gem 'github-pages'
+# or
+# gem 'jekyll'
 ```
 **[_config.yml](https://github.com/BrandonRoehl/BrandonRoehl.GitHub.io/blob/master/_config.yml)**
 ```yml
@@ -59,8 +60,10 @@ jekyll s
 Then I built out the page with polymer using `<app-route>` and `<app-location>`
 for the normal routing
 
-For the posts in jekyll you can then loop though with
-[my-blog.html](https://github.com/BrandonRoehl/BrandonRoehl.GitHub.io/blob/master/src/my-blog.html)
+For the posts in jekyll you can then loop though with the
+{% raw %}`{% for post in post %}`{% endraw %}. An example of how I did this
+is in
+[`my-blog.html`](https://github.com/BrandonRoehl/BrandonRoehl.GitHub.io/blob/master/src/my-blog.html)
 
 Now because we made the permalink in the `_config.yml` similar to the original
 files so then every `<dom-module/>` is able to have the basename of these files
