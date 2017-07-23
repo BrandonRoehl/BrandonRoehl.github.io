@@ -5,12 +5,12 @@ This is hosted on [GitHub Pages](https://pages.github.com)
 
 Here are the steps that it took for me to get this working
 
-[** Gemfile **](https://github.com/BrandonRoehl/BrandonRoehl.GitHub.io/blob/master/Gemfile)
+**[Gemfile](https://github.com/BrandonRoehl/BrandonRoehl.GitHub.io/blob/master/Gemfile)**
 ```ruby
 source 'https://rubygems.org'
 gem 'github-pages'
 ```
-[** bower.json **](https://github.com/BrandonRoehl/BrandonRoehl.GitHub.io/blob/master/bower.json)
+**[bower.json](https://github.com/BrandonRoehl/BrandonRoehl.GitHub.io/blob/master/bower.json)**
 ```json
 {
   "name": "polymer-project",
@@ -46,7 +46,9 @@ Then I built out the page with polymer using `<app-route>` and `<app-location>` 
 
 For the posts in jekyll you can then loop though with
 ```html
+{% raw  %}
 {% for post in posts %}
 use information from post here
 {% endfor %}
+{% endraw %}
 ```
