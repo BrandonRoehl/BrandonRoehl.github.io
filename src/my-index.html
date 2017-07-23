@@ -84,14 +84,22 @@
             .code {
                 @apply(--paper-font-common-code);
                 text-align: left;
+                min-width: 75%;
+                max-width: 100%;
+                overflow: auto;
             }
             .code.header {
                 font-size: 2em;
             }
-            pre code {
+            .code pre code {
+                display: table;
                 border: none;
                 background: none;
                 box-shadow: none;
+                margin: 0 auto;
+            }
+            .code .highlight {
+                margin: 0;
             }
 
         </style>
