@@ -25,6 +25,13 @@
                 display: block;
             }
 
+            app-drawer {
+                --app-drawer-content-container: {
+                    background: #404040;
+                    color: var(--dark-theme-text-color);
+                };
+            }
+
             .drawer-list {
                 margin: 0 20px;
             }
@@ -33,10 +40,10 @@
                 padding: 0 16px;
                 line-height: 40px;
                 text-decoration: none;
+                color: var(--dark-theme-text-color);
             }
             .drawer-list .iron-selected {
-                background: var(--primary-color);
-                color: white;
+                background: #888888;
             }
             .drawer-list a.subroute {
                 padding-left: 32px;
