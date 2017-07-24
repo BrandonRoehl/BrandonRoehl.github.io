@@ -4,6 +4,7 @@ body {
     margin: 0;
     font-family: 'Roboto', 'Noto', sans-serif;
     line-height: 1.5;
+    font-size: 16px;
     min-height: 100vh;
     background-color: #eee;
 }
@@ -21,3 +22,13 @@ body {
     left: 0;
 }
 
+code {
+	padding: 1px 5px;
+	// border: 1px solid #cecece;
+	border-radius: 3px;
+	pre & {
+		padding: 16px;
+		overflow: auto;
+		display: block;
+    }
+}
