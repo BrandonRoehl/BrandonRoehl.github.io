@@ -4,7 +4,6 @@
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../stylesheets/shared-styles.html">
 
 <dom-module id="my-blog">
@@ -15,17 +14,13 @@
         <style is="custom-style">
             :host {
                 display: block;
-                padding-top: 1em;
+                padding: 1em;
             }
             .container {
                 width: 100%;
                 max-width: 60rem;
                 display: block;
                 margin: 0 auto;
-            }
-            .container paper-card {
-                width: 100%;
-                padding: 0.5em;
             }
         </style>
 
@@ -37,23 +32,14 @@
     {% endraw %}
 
     <div class="container">
-        <paper-tabs selected="[[post]]" scrollable attr-for-selected="name">
+
+        <iron-pages selected="[[post]]" attr-for-selected="name">
             {% for post in site.posts %}
             {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
-            <paper-tab link name="{{name}}">
-                <a href="/#/blog/{{name}}" tabindex="-1">{{ post.title }}</a>
-            </paper-tab>
+            <{{name}} name="{{name}}"></{{name}}>
             {% endfor %}
-        </paper-tabs>
-
-        <paper-card>
-            <iron-pages selected="[[post]]" attr-for-selected="name">
-                {% for post in site.posts %}
-                {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
-                <{{name}} name="{{name}}"></{{name}}>
-                {% endfor %}
-            </iron-pages>
-        </paper-card>
+            <my-blog-index name="index"><my-blog-index>
+        </iron-pages>
     </div>
 
   </template>
@@ -77,16 +63,20 @@
         ],
 
         _routePageChanged: function(post) {
-            this.post = post || "{{site.posts.first.url|remove:'/blog/'|remove:'.html'}}";
+            this.post = post || "index";
         },
 
         _pageChanged: function(post) {
-            // load page import on demand.
-            this.importHref(this.resolveUrl('../blog/' + post + '.html'), null, null, true);
+            url = null;
+            if (post == 'index') {
+                url = this.resolveUrl('my-blog-index.html');
+            } else {
+                url = this.resolveUrl('../blog/' + post + '.html');
+            }
+            this.importHref(url, null, null, true);
         }
 
     });
-
   </script>
 
 </dom-module>

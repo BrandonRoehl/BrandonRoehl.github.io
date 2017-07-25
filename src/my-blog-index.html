@@ -1,0 +1,51 @@
+---
+---
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../stylesheets/shared-styles.html">
+<dom-module id="my-blog-index">
+    <template>
+        <link rel="stylesheet" type="text/css" href="../stylesheets/one-light.css">
+        <style include="shared-styles"></style>
+        <style>
+        :host {
+            display: block;
+        }
+        paper-card {
+            max-width: 100%;
+            position: relative;
+        }
+        paper-card > a {
+            text-decoration: none;
+            color: var(--primary-text-color);
+        }
+        </style>
+        {% for post in site.posts %}
+        {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
+        <paper-card>
+            <a href="/#/blog/{{name}}">
+                <div class="card-content">
+                    <paper-ripple></paper-ripple>
+                    <h3>{{ post.title }}</h3>
+                    {{ post.excerpt }}
+                </div>
+            </a>
+            <div class="card-actions">
+                <div class="horizontal justified">
+                    <a href="/#/blog/{{name}}">
+                        <paper-icon-button icon="link"></paper-icon-button>
+                    </a>
+                    <a href="{{ site.github.repository_url }}/blob/master/{{ post.relative_path }}">
+                        <paper-icon-button icon="create"></paper-icon-button>
+                    </a>
+                </div>
+            </div>
+        </paper-card>
+        {% endfor %}
+    </template>
+    <script>
+        Polymer({
+            is: "my-blog-index"
+        });
+    </script>
+</dom-module>

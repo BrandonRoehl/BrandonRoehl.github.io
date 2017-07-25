@@ -2,7 +2,8 @@
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../stylesheets/shared-styles.html">
+<link rel="import" href="../../../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../../../stylesheets/shared-styles.html">
 <dom-module id="{{name}}">
     <template>
         <link rel="stylesheet" type="text/css" href="../../../../stylesheets/one-light.css">
@@ -10,16 +11,25 @@
         <style>
         :host {
             display: block;
-            padding: 10px;
+        }
+        paper-card {
+            max-width: 100%;
         }
         </style>
-        <h1>
-            {{ page.title }}
-            <a href="{{ site.github.repository_url }}/blob/master/{{ page.relative_path }}">
-                <paper-icon-button icon="link"></paper-icon-button>
-            </a>
-        </h1>
-        {{ content }}
+        <paper-card>
+            <div class="card-content">
+                <h1>
+                    <a href="javascript:history.back()">
+                        <paper-icon-button icon="arrow-back"></paper-icon-button>
+                    </a>
+                    {{ page.title }}
+                    <a href="{{ site.github.repository_url }}/blob/master/{{ page.relative_path }}">
+                        <paper-icon-button icon="create"></paper-icon-button>
+                    </a>
+                </h1>
+                {{ content }}
+            </div>
+        </paper-card>
     </template>
     <script>
         Polymer({
