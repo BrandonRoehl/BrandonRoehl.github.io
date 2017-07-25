@@ -1,6 +1,5 @@
 port: 3000
 sass:
-    sass_dir: stylesheets
     style: compressed
 permalink: /blog/post-:year-:month-:day-:title.html
 
