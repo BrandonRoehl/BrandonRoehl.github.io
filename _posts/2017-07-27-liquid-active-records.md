@@ -59,11 +59,10 @@ end
 This is really not preferred because now this exposes all the class methods that
 may not return values that are useful and can be a vulnerability.
 
-So lets try and whitelist the columns and methods we want
+So lets try and whitelist the columns and methods we want and convert this to a
+module instead
 ```ruby
-class ApplicationRecord < ActiveRecord::Base
-    self.abstract_class = true
-
+module Liquify
     class LiquidDrop < Liquid::Drop
         def initialize(model)
             @model = model
@@ -89,9 +88,10 @@ end
 ```
 ```ruby
 class Author < ApplicationRecord
-    has_many :books
-
+    include Liquify
     LIQUID_METHODS = :books, :last_name, :first_name, :name, :id
+
+    has_many :books
 
     def name
         "#{first_name} #{last_name}"
@@ -100,9 +100,10 @@ end
 ```
 ```ruby
 class Book < ApplicationRecord
-    belongs_to :author
-
+    include Liquify
     LIQUID_METHODS = :author, :title, :description, :bestsellers, :id
+
+    belongs_to :author
 
     scope :bestsellers, -> { where ny_times: true }
 
