@@ -8,6 +8,7 @@ code {
     background-color: #f8f8f8;
 	pre & {
 		overflow: auto;
+        display: block;
 	}
 }
 .highlight table td { padding: 5px; }
