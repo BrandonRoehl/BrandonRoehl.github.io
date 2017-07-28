@@ -16,12 +16,6 @@
                 display: block;
                 padding: 1em;
             }
-            .container {
-                width: 100%;
-                max-width: 60rem;
-                display: block;
-                margin: 0 auto;
-            }
         </style>
 
     {% raw  %}
@@ -31,16 +25,13 @@
         data="{{routeData}}"></app-route>
     {% endraw %}
 
-    <div class="container">
-
-        <iron-pages selected="[[post]]" attr-for-selected="name">
-            {% for post in site.posts %}
-            {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
-            <{{name}} name="{{name}}"></{{name}}>
-            {% endfor %}
-            <my-blog-index name="index"><my-blog-index>
-        </iron-pages>
-    </div>
+    <iron-pages selected="[[post]]" attr-for-selected="name">
+        {% for post in site.posts %}
+        {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
+        <{{name}} name="{{name}}"></{{name}}>
+        {% endfor %}
+        <my-blog-index name="index"><my-blog-index>
+    </iron-pages>
 
   </template>
 
