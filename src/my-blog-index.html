@@ -10,56 +10,38 @@
         <style>
         :host {
             display: block;
-            column-count: 1;
-            column-gap: 0;
-        }
-        @media (min-width: 768px) {
-            :host {
-                column-count: 2;
-            }
-        }
-        @media (min-width: 1200px) {
-            :host {
-                column-count: 3;
-            }
-        }
-        :host > div {
-            break-inside: avoid;
-            padding: 0.5em;
         }
         paper-card {
-            padding: 5px;
             position: relative;
-            display: inline-block;
-            width: 100%;
+            max-width: 50rem;
+            display: block;
+            margin: 1em auto;
         }
         </style>
         {% for post in site.posts %}
             {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
-            <div>
-                <paper-card>
-                    <div class="card-content">
+            <paper-card>
+                <div class="card-content">
+                    <a href="/#/blog/{{name}}">
+                        <paper-ripple></paper-ripple>
+                        <h3>{{ post.title }}</h3>
+                    </a>
+                    {{ post.excerpt }}
+                </div>
+                <div class="card-actions">
+                    <div class="horizontal justified">
                         <a href="/#/blog/{{name}}">
-                            <paper-ripple></paper-ripple>
-                            <h3>{{ post.title }}</h3>
+                            <paper-icon-button icon="link"></paper-icon-button>
                         </a>
-                        {{ post.excerpt }}
-                    </div>
-                    <div class="card-actions">
-                        <div class="horizontal justified">
-                            <a href="/#/blog/{{name}}">
-                                <paper-icon-button icon="link"></paper-icon-button>
-                            </a>
-                            <a href="{{ site.github.repository_url }}/blob/master/{{ post.relative_path }}">
-                                <paper-icon-button icon="create"></paper-icon-button>
-                            </a>
-                            <div style="float:right">
-                                {{ post.date | date: "%b %d, %Y" }}
-                            </div>
+                        <a href="{{ site.github.repository_url }}/blob/master/{{ post.relative_path }}">
+                            <paper-icon-button icon="create"></paper-icon-button>
+                        </a>
+                        <div style="float:right">
+                            {{ post.date | date: "%b %d, %Y" }}
                         </div>
                     </div>
-                </paper-card>
-            </div>
+                </div>
+            </paper-card>
         {% endfor %}
     </template>
     <script>
