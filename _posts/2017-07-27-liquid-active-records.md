@@ -43,7 +43,7 @@ class ApplicationRecord < ActiveRecord::Base
                 @model.send method_or_key
             else
                 # Instead of throwing the normal method
-                # not found thow liquids instead so we don't fail unless
+                # not found throw liquids instead so we don't fail unless
                 # render! is called and will only show up in errors if the
                 # render is called with { strict_variables: true }
                 liquid_method_missing(method_or_key)
@@ -73,7 +73,7 @@ module Liquify
                 @model.send(method_or_key)
             else
                 # Instead of throwing the normal method
-                # not found thow liquids instead so we don't fail unless
+                # not found throw liquids instead so we don't fail unless
                 # render! is called and will only show up in errors if the
                 # render is called with { strict_variables: true }
                 liquid_method_missing(method_or_key)
