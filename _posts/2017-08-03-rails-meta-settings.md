@@ -35,7 +35,7 @@ variables can be made whenever. This is cool but, how could we get this behavior
 in Rails and get it to save?
 
 For more information on Ruby's
-[method_missing](https://ruby-doc.org/core-2.4.0/BasicObject.html#method-i-method_missing)
+[`method_missing`](https://ruby-doc.org/core-2.4.0/BasicObject.html#method-i-method_missing)
 checkout the [ruby docs](https://ruby-doc.org)
 
 We will start by what we know we know that the hash object real just needs a key

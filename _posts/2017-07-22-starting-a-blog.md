@@ -12,7 +12,7 @@ gem 'github-pages'
 # gem 'jekyll'
 ```
 **[_config.yml](https://github.com/BrandonRoehl/BrandonRoehl.GitHub.io/blob/master/_config.yml)**
-```yml
+```yaml
 sass:
     sass_dir: stylesheets
     style: compressed
