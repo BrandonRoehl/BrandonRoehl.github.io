@@ -21,7 +21,7 @@
         <!-- <blogChannel:mySubscriptions>http://radio.weblogs.com/0001015/gems/mySubscriptions.opml</blogChannel:mySubscriptions> -->
         <!-- <blogChannel:blink>http://diveintomark.org/</blogChannel:blink> -->
         <!-- <category domain="Syndic8">1765</category> -->
-        {%- for post in site.posts -%}
+        {%- for post in site.posts limit:10 -%}
         {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
         <item>
             <title>{{ post.title }}</title>
