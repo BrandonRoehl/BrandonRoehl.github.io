@@ -1,0 +1,65 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../stylesheets/shared-styles.html">
+
+<dom-module id="my-dayAndNight">
+
+	<template>
+        <link rel="stylesheet" type="text/css" href="../stylesheets/rouge-github.css">
+
+        <style include="shared-styles"></style>
+		<style>
+			:host {
+				display: block;
+				padding: 10px;
+			}
+			paper-card {
+				padding: 1em;
+				margin: 1em;
+			}
+			h1 {
+				font-size: 22px;
+				margin: 16px 0;
+				color: #212121;
+			}
+		</style>
+
+		<paper-card>
+			<h1>Day & Night</h1>
+            <p>
+                Day &amp; Night changes your wallpaper based on the time of day.
+                <br/> This app will also run any script in the scripts folder
+                labeled <code>day</code> and <code>night</code> every time the
+                app transitions from one state to the next.
+            </p>
+            <p>
+                This application needs your location to access sunrise times at your location. <br />
+                If you deny location services you can enable them in <code>System Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Location Services</code> and select Day &amp; Night.
+            </p>
+            <p>
+                Sunrise and sunset times provided by
+                <a href="https://sunrise-sunset.org/">https://sunrise-sunset.org/</a>
+            </p>
+		</paper-card>
+        <a href="mailto:me@brandonroehl.org?subject=[Day%20and%20Night%20Support]">
+            <paper-button>
+                <iron-icon icon="mail"></iron-icon> &nbsp;
+                Support
+            </paper-button>
+        </a>
+	</template>
+
+	<script>
+		Polymer({
+            is: 'my-dayAndNight',
+			openModal: function() {
+				var body = document.querySelector('body');
+				Polymer.dom(body).appendChild(this.$.modal);
+				this.$.modal.open();
+			}
+		});
+	</script>
+</dom-module>
