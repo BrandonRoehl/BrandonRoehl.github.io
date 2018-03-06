@@ -15,6 +15,7 @@
     "iron-media-query": "PolymerElements/iron-media-query#^1.0.0",
     "iron-pages": "PolymerElements/iron-pages#^1.0.0",
     "iron-selector": "PolymerElements/iron-selector#^1.0.0",
-    "paper-elements": "PolymerElements/paper-elements#^1.0.7"
+    "paper-elements": "PolymerElements/paper-elements#^1.0.7",
+    "paper-carousel": "Redbility/paper-carousel#^1.2.5"
   }
 }

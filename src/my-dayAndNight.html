@@ -1,8 +1,12 @@
-
+<!-- Google -->
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
-<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/paper-tooltip/paper-tooltip.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<!-- Redbility -->
+<link rel="import" href="../bower_components/paper-carousel/paper-carousel.html">
+<!-- Mine -->
 <link rel="import" href="../stylesheets/shared-styles.html">
 
 <dom-module id="my-dayAndNight">
@@ -11,45 +15,68 @@
         <link rel="stylesheet" type="text/css" href="../stylesheets/rouge-github.css">
 
         <style include="shared-styles"></style>
-		<style>
-			:host {
-				display: block;
-				padding: 10px;
-			}
-			paper-card {
-				padding: 1em;
-				margin: 1em;
-			}
-			h1 {
-				font-size: 22px;
-				margin: 16px 0;
-				color: #212121;
-			}
-		</style>
+        <style>
+        :host {
+            display: block;
+        }
+        paper-card {
+            position: relative;
+            max-width: 50rem;
+            display: block;
+            margin: 1em auto;
+        }
+        #support-fab {
+            position: fixed;
+            right: 1em;
+            bottom: 1em;
+            z-index: 100;
+        }
+        </style>
+        <a id="support-fab" href="mailto:me@brandonroehl.org?subject=[Day%20and%20Night%20Support]">
+            <paper-fab icon="mail"></paper-fab>
+        </a>
+        <paper-tooltip for="support-fab" position="top" animation-delay="0">Support Email</paper-tooltip>
 
-		<paper-card>
+		<paper-card style="padding: 1em">
+            <p style="float: right">
+                <a href="https://itunes.apple.com/us/app/day-night/id1350609762?ls=1&mt=12" target="_blank">
+                    <img src="../images/MacAppStoreBadge.svg"></img>
+                </a>
+            </p>
 			<h1>Day & Night</h1>
             <p>
                 Day &amp; Night changes your wallpaper based on the time of day.
-                <br/> This app will also run any script in the scripts folder
-                labeled <code>day</code> and <code>night</code> every time the
-                app transitions from one state to the next.
+                This app will also run any script in the scripts folder during
+                transitions from one state to the next.  Simply place any Unix,
+                AppleScript, or Automator Workflow scripts in the scripts folder
+                and set its name in setting.
             </p>
             <p>
-                This application needs your location to access sunrise times at your location. <br />
-                If you deny location services you can enable them in <code>System Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Location Services</code> and select Day &amp; Night.
+                This application needs your location to access sunrise times at
+                your location. <br />
+
+                If you deny location services you can enable them in
+                <code>System Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Location Services</code>
+                and select Day &amp; Night.
+            </p>
+            <p>
+                To select an image simply click on the day or night buttons on
+                the bottom and select the image you want for that time.
             </p>
             <p>
                 Sunrise and sunset times provided by
                 <a href="https://sunrise-sunset.org/">https://sunrise-sunset.org/</a>
             </p>
 		</paper-card>
-        <a href="mailto:me@brandonroehl.org?subject=[Day%20and%20Night%20Support]">
-            <paper-button>
-                <iron-icon icon="mail"></iron-icon> &nbsp;
-                Support
-            </paper-button>
-        </a>
+        <!-- images -->
+        <paper-card>
+            <paper-carousel items="1" dotText="false" loop="true" autoplay="true">
+                <img src="../images/DayAndNight/one.png" draggable="false"/>
+                <img src="../images/DayAndNight/two.png" draggable="false"/>
+                <img src="../images/DayAndNight/three.png" draggable="false"/>
+                <img src="../images/DayAndNight/four.png" draggable="false"/>
+            </paper-carousel>
+        </paper-card>
 	</template>
 
 	<script>
