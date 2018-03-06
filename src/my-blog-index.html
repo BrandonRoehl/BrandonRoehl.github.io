@@ -37,9 +37,11 @@
                         <a href="/#/blog/{{name}}">
                             <paper-icon-button icon="link"></paper-icon-button>
                         </a>
+                        {% comment %}
                         <a href="{{ site.github.repository_url }}/blob/master/{{ post.relative_path }}">
                             <paper-icon-button icon="create"></paper-icon-button>
                         </a>
+                        {% endcomment %}
                         <div style="float:right">
                             {{ post.date | date: "%b %d, %Y" }}
                         </div>

@@ -29,9 +29,11 @@
             <div class="card-content">
                 <h1>
                     {{ page.title }}
+                    {% comment %}
                     <a href="{{ site.github.repository_url }}/blob/master/{{ page.relative_path }}">
                         <paper-icon-button icon="create"></paper-icon-button>
                     </a>
+                    {% endcomment %}
                     <div class="date">
                         {{ page.date | date: "%b %d, %Y" }}
                     </div>
