@@ -3,6 +3,8 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/paper-tooltip/paper-tooltip.html">
 <link rel="import" href="../stylesheets/shared-styles.html">
 <dom-module id="my-blog-index">
     <template>
@@ -18,10 +20,17 @@
             display: block;
             margin: 1em auto;
         }
+        #subscribe-fab {
+            position: fixed;
+            right: 1em;
+            bottom: 1em;
+            z-index: 100;
+        }
         </style>
-        <a href="../index.rss" target="_blank">
-            <paper-icon-button icon="social:notifications"></paper-icon-button>
+        <a id="subscribe-fab" href="../index.rss" target="_blank">
+            <paper-fab icon="social:notifications"></paper-fab>
         </a>
+        <paper-tooltip for="subscribe-fab" position="top" animation-delay="0">Subscribe to RSS</paper-tooltip>
         {% for post in site.posts %}
             {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
             <paper-card>
