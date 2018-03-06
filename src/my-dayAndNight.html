@@ -25,6 +25,19 @@
             display: block;
             margin: 1em auto;
         }
+        paper-card h1 {
+            font-weight: 300;
+            font-size: 3em;
+            margin-top: 0em;
+        }
+        paper-card hr {
+            width: 21em;
+            height: 1px;
+            border: none;
+            margin: -20px auto;
+            float: left;
+            background-color: black;
+        }
         #support-fab {
             position: fixed;
             right: 1em;
@@ -35,7 +48,7 @@
         <a id="support-fab" href="mailto:me@brandonroehl.org?subject=[Day%20and%20Night%20Support]">
             <paper-fab icon="mail"></paper-fab>
         </a>
-        <paper-tooltip for="support-fab" position="top" animation-delay="0">Support Email</paper-tooltip>
+        <paper-tooltip for="support-fab" position="left" animation-delay="0">Support Email</paper-tooltip>
 
 		<paper-card style="padding: 1em">
             <p style="float: right">
@@ -43,7 +56,8 @@
                     <img src="../images/MacAppStoreBadge.svg"></img>
                 </a>
             </p>
-			<h1>Day & Night</h1>
+            <h1>Day & Night</h1>
+            <hr />
             <p>
                 Day &amp; Night changes your wallpaper based on the time of day.
                 This app will also run any script in the scripts folder during
