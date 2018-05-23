@@ -7,7 +7,7 @@
     xmlns:atom="http://www.w3.org/2005/Atom"
     >
     <channel>
-        <atom:link href="{{ page.url }}" rel="self" type="application/rss+xml" />
+        <atom:link href="http://brandonroehl.org/{{ page.url }}" rel="self" type="application/rss+xml" />
         <title>Brandon Roehl's Blog</title>
         <link>http://brandonroehl.org</link>
         <description>A blog about scripting and stuff like that.</description>
