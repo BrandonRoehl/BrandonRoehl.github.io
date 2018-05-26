@@ -11,6 +11,17 @@ code {
         display: block;
     }
 }
+blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+    & > :first-child {
+        margin-top: 0;
+    }
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
 .highlight {
     table td { padding: 5px; }
     table pre { margin: 0; }
