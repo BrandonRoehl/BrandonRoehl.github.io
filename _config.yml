@@ -1,7 +1,6 @@
 port: 3000
 sass:
     style: compressed
-permalink: /blog/post-:year-:month-:day-:title.html
 
 title: Brandon's Homepage
 email: BrandonRoehl@gmail.com
@@ -17,3 +16,5 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      permalink: /blog/post-:year-:month-:day-:title.html
+
