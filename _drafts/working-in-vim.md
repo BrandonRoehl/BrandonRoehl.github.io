@@ -22,4 +22,11 @@ right out of the box.
 
 ### The Ugly
 - Poor highlighting
+- Poor coloring
+
+## Making Vim home
+
+So the thing that made me hate and then love to the point I needed to add the
+IntiliJ-Vim plugin was the modal editing. To say that that Vim has a steep
+learning curve is an understatement but it is well worth it.
 
