@@ -7,7 +7,7 @@
     xmlns:atom="http://www.w3.org/2005/Atom"
     >
     <channel>
-        <atom:link href="http://brandonroehl.org/{{ page.url }}" rel="self" type="application/rss+xml" />
+        <atom:link href="{{ /feed.xml | absolute_url }}" rel="self" type="application/rss+xml" />
         <title>Brandon Roehl's Blog</title>
         <link>http://brandonroehl.org</link>
         <description>A blog about scripting and stuff like that.</description>
@@ -22,14 +22,14 @@
         {%- for post in site.posts limit:10 -%}
         {% assign name = post.url|remove:'/blog/'|remove:'.html' %}
         <item>
-            <title>{{ post.title }}</title>
-            <link>http://brandonroehl.org/#/blog/{{name}}</link>
-            <guid>{{ post.id }}</guid>
+            <title>{{ post.title | xml_escape }}</title>
+            <link>{{ site.url }}/#/blog/{{name}}</link>
+            <guid>{{ post.id | xml_escape }}</guid>
             <pubDate>{{ post.date | date: "%a, %b %d, %Y" }}</pubDate>
             {%- for category in post.categories -%}
-            <category>{{ category }}</category>
+            <category>{{ post.category | xml_escape }}</category>
             {%- endfor -%}
-            <description>{{ post.excerpt | strip_html }}</description>
+            <description>{{ post.excerpt | strip_html | xml_escape }}</description>
             <content:encoded><![CDATA[{{ post.content }}]]></content:encoded>
         </item>
         {%- endfor %}
