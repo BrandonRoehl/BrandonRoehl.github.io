@@ -7,7 +7,7 @@ body {
     font-size: 16px;
     background: linear-gradient(290deg, #05ffa7, #0552ff);
     text-align: center;
-    color: #fff;
+    // color: #fff;
     padding: 5em;
 }
 
@@ -15,8 +15,31 @@ body {
     outline: none;
 }
 
+#title {
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    color: #fff;
+    text-decoration: none;
+    a {
+        border-radius: 0.5em;
+    }
+}
+
 paper-button[raised] {
-    background: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(136deg, rgba(5, 82, 255, 0.5), rgba(5, 149, 255, 0.3));
+}
+
+paper-card {
+    max-width: 40em;
+    padding: 1em;
+    position: relative;
+    z-index: 1;
+    #close-fab {
+        position: absolute;
+        right: -1.5em;
+        top: -1.5em;
+    }
 }
 
 div {
