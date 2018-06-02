@@ -1,5 +1,7 @@
 ---
 ---
+$main-color: #ff8405;
+
 body {
     margin: 0;
     font-family: 'Roboto', 'Noto', sans-serif;
@@ -19,15 +21,16 @@ body {
     position: absolute;
     left: 1em;
     bottom: 1em;
-    color: #fff;
     text-decoration: none;
     a {
+        color: #fff;
         border-radius: 0.5em;
     }
 }
 
 paper-button[raised] {
-    background: linear-gradient(136deg, rgba(5, 82, 255, 0.5), rgba(5, 149, 255, 0.3));
+    color: #fff;
+    background: $main-color;
 }
 
 paper-card {
@@ -36,6 +39,9 @@ paper-card {
     position: relative;
     z-index: 1;
     #close-fab {
+        paper-fab {
+            background: $main-color;
+        }
         position: absolute;
         right: -1.5em;
         top: -1.5em;
@@ -46,11 +52,9 @@ div {
     display: inline-block;
     padding: 1em;
     a {
-        color: #000;
         text-decoration: none;
         margin: 1rem;
         &:last-child {
-            color: #fff;
             paper-button[raised] {
                 background: #000;
             }
