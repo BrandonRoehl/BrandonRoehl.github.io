@@ -1,0 +1,36 @@
+---
+---
+body {
+    margin: 0;
+    font-family: 'Roboto', 'Noto', sans-serif;
+    line-height: 1.5;
+    font-size: 16px;
+    background: linear-gradient(290deg, #05ffa7, #0552ff);
+    text-align: center;
+    color: #fff;
+    padding: 5em;
+}
+
+* {
+    outline: none;
+}
+
+paper-button[raised] {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+div {
+    display: inline-block;
+    padding: 1em;
+    a {
+        color: #000;
+        text-decoration: none;
+        margin: 1rem;
+        &:last-child {
+            color: #fff;
+            paper-button[raised] {
+                background: #000;
+            }
+        }
+    }
+}

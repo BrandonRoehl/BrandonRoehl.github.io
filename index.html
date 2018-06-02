@@ -1,64 +1,54 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-  <title>Brandon Roehl</title>
+        <title>Brandon Roehl</title>
 
-  <link rel="shortcut icon" sizes="32x32" href="./images/app-icon-32.png">
+        <link rel="shortcut icon" sizes="32x32" href="./images/app-icon-32.png">
 
-  <meta name="theme-color" content="#000">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="BrandonRoehl.org">
-  <link rel="manifest" href="./manifest.json">
-  <link rel="stylesheet" type="text/css" href="./stylesheets/application.css">
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="./index.rss">
+        <meta name="theme-color" content="#000">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="BrandonRoehl.org">
+        <link rel="manifest" href="./manifest.json">
+        <link rel="stylesheet" type="text/css" href="./stylesheets/application.css">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="./index.rss">
 
-  <script>
-    // setup Polymer options
-    window.Polymer = {lazyRegister: true, dom: 'shadow'};
+        <script>
+            // setup Polymer options
+            window.Polymer = {lazyRegister: true, dom: 'shadow'};
 
-    // load webcomponents polyfills
-    (function() {
-      if ('registerElement' in document
-          && 'import' in document.createElement('link')
-          && 'content' in document.createElement('template')) {
-        // browser has web components
-      } else {
-        // polyfill web components
-        var e = document.createElement('script');
-        e.src = './bower_components/webcomponentsjs/webcomponents-lite.min.js';
-        document.head.appendChild(e);
-      }
-    })();
+            // load webcomponents polyfills
+            (function() {
+                if ('registerElement' in document
+                    && 'import' in document.createElement('link')
+                    && 'content' in document.createElement('template')) {
+                    // browser has web components
+                } else {
+                    // polyfill web components
+                    var e = document.createElement('script');
+                    e.src = './bower_components/webcomponentsjs/webcomponents-lite.min.js';
+                    document.head.appendChild(e);
+                }
+            })();
 
-    // load pre-caching service worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('./service-worker.js');
-      });
-    }
+            // load pre-caching service worker
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('./service-worker.js');
+                });
+            }
 
-  </script>
+        </script>
 
-  <link rel="import" href="./src/my-app.html">
+        <link rel="import" href="./src/my-app.html">
 
-</head>
-<body>
+    </head>
+    <body>
 
-  <my-app></my-app>
+        <my-app></my-app>
 
-</body>
+    </body>
 </html>

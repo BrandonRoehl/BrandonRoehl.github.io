@@ -1,24 +1,73 @@
 ---
-layout: default
 ---
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <title>Can't find Brandon</title>
 
-<div class="container">
-  <h1>404</h1>
+        <link rel="shortcut icon" sizes="32x32" href="./images/app-icon-32.png">
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+        <meta name="theme-color" content="#000">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="BrandonRoehl.org">
+        <link rel="manifest" href="./manifest.json">
+        <link rel="stylesheet" type="text/css" href="./stylesheets/404.css">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="./index.rss">
+
+        <script>
+            // setup Polymer options
+            window.Polymer = {lazyRegister: true, dom: 'shadow'};
+
+            // load webcomponents polyfills
+            (function() {
+                if ('registerElement' in document
+                    && 'import' in document.createElement('link')
+                    && 'content' in document.createElement('template')) {
+                    // browser has web components
+                } else {
+                    // polyfill web components
+                    var e = document.createElement('script');
+                    e.src = './bower_components/webcomponentsjs/webcomponents-lite.min.js';
+                    document.head.appendChild(e);
+                }
+            })();
+
+            // load pre-caching service worker
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('./service-worker.js');
+                });
+            }
+
+        </script>
+
+        <link rel="import" href="./bower_components/paper-button/paper-button.html">
+        <style is="custom-style">
+            paper-button[raised] {
+                --paper-button-ink-color: #fff;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>404 Not Found</h1>
+
+        <p>
+            Um... well this is embarrassing maybe I misplaced this? <br/>
+            Or it never existed...
+        </p>
+
+        <div>
+            <a href="{{ site.url }}">
+                <paper-button raised>Take Me Home</paper-button>
+            </a>
+
+            <a href="mailto:{{ site.email }}">
+                <paper-button raised>It's an Error</paper-button>
+            </a>
+        </div>
+    </body>
+</html>
